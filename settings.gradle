@@ -1,3 +1,4 @@
-include ':lib_cryption'
+include ':smart_update'
+include ':cryption'
 include ':app'
 rootProject.name = "MyBaseLibrary"
