@@ -1,3 +1,3 @@
-include ':lib_crption'
+include ':lib_cryption'
 include ':app'
 rootProject.name = "MyBaseLibrary"

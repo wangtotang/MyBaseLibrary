@@ -1,4 +1,4 @@
-package com.tang.crption
+package com.tang.cryption
 
 import java.util.*
 import javax.crypto.Cipher
@@ -8,12 +8,12 @@ import javax.crypto.spec.DESKeySpec
 /**
  * Created by tanghongtu on 2020/6/22.
  *
- * DES加密
+ * DES 对称加密
  */
 object DESCipher {
 
-    private val transformation = "DES/ECB/PKCS5Padding"
-    private val algorithm = "DES"
+    private const val TRANSFORMATION = "DES/ECB/PKCS5Padding"
+    private const val ALGORITHM = "DES"
 
     /**
      * key必须是8的整数位
@@ -21,10 +21,10 @@ object DESCipher {
     fun encrypt(input: String, key: String):String {
 
         //1.创建cipher
-        val instance = Cipher.getInstance(transformation)
+        val instance = Cipher.getInstance(TRANSFORMATION)
         //2.初始化cipher
         val secretKeySpec = DESKeySpec(key.toByteArray())
-        val spec = SecretKeyFactory.getInstance(algorithm).generateSecret(secretKeySpec)
+        val spec = SecretKeyFactory.getInstance(ALGORITHM).generateSecret(secretKeySpec)
         instance.init(Cipher.ENCRYPT_MODE, spec)
         //3.dofinal
         val byteArray = instance.doFinal(input.toByteArray())
@@ -35,10 +35,10 @@ object DESCipher {
     fun decrypt(input: String, key: String):String {
 
         //1.创建cipher
-        val instance = Cipher.getInstance(transformation)
+        val instance = Cipher.getInstance(TRANSFORMATION)
         //2.初始化cipher
         val secretKeySpec = DESKeySpec(key.toByteArray())
-        val spec = SecretKeyFactory.getInstance(algorithm).generateSecret(secretKeySpec)
+        val spec = SecretKeyFactory.getInstance(ALGORITHM).generateSecret(secretKeySpec)
         instance.init(Cipher.DECRYPT_MODE, spec)
         //3.dofinal
         val byteArray = instance.doFinal(Base64.getDecoder().decode(input.toByteArray()))
