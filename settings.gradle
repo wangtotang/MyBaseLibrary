@@ -1,3 +1,4 @@
+include ':andfix-demo'
 include ':smart-update'
 include ':cryption'
 include ':app'
