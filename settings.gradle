@@ -1,4 +1,4 @@
-include ':smart_update'
+include ':smart-update'
 include ':cryption'
 include ':app'
 rootProject.name = "MyBaseLibrary"
