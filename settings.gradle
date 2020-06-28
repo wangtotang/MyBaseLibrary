@@ -1,3 +1,4 @@
+include ':tinker-demo'
 include ':andfix-demo'
 include ':smart-update'
 include ':cryption'
