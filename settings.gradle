@@ -1,3 +1,4 @@
+include ':alipay-demo'
 include ':tinker-demo'
 include ':andfix-demo'
 include ':smart-update'
