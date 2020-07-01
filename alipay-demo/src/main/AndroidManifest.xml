@@ -20,15 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--alipay start-->
-        <activity
-            android:name="com.alipay.sdk.pay.demo.H5PayDemoActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <!--alipay end-->
     </application>
 
 </manifest>
