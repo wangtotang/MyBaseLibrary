@@ -82,7 +82,7 @@ public class OrderInfoUtil2_0 {
 
 		keyValues.put("sign_type", "RSA2");
 
-		keyValues.put("timestamp", "2020-07-01 00:28:00");
+		keyValues.put("timestamp", "2020-07-01 18:00:00");
 
 		keyValues.put("version", "1.0");
 
