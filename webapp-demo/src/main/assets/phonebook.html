@@ -6,18 +6,42 @@
     <link rel="stylesheet" type="text/css" href="css/phonebook.css">
 </head>
 <body>
-    <div id="btn" class="phone">131254654654</div>
+    <div id="btn" class="phone" onclick="dial(this)">131254654654</div>
     <button id="btn1">js调用kotlin</button>
-    <button id="btn2">kotlin调用js</button>
+    <button id="btn2">js调用kotlin（callback）</button>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
-        $("#btn1").on("onlick", function(){
-            alert("我是弹窗");
+        var myToast = function() {
+            window.jsInterface.toast("我是Toast");
+        };
+
+        $("#btn1").on("click", function(){
+            myToast();
         });
 
-        var myAlert = function() {
-             window.jsInterface.toast("我是Toast");
-        };
+        function myAlert() {
+            alert("我是弹窗");
+        }
+
+        function showPhoneNumber(json) {
+            var jsonStr = JSON.stringify(json);
+            //alert(json["phoneNumber"]);
+            $(".phone").html(json["phoneNumber"]);
+        }
+
+        var method = {"callback":"showPhoneNumber"};
+        window.jsInterface.getPhoneNumber(JSON.stringify(method));
+
+        $("#btn2").on("click", function() {
+            var method = {"callback":"showPhoneNumber"};
+            window.jsInterface.getPhoneNumber(JSON.stringify(method));
+        })
+
+        function dial(view) {
+            var phone = $(view).text();
+            window.jsInterface.dial(phone);
+        }
+
     </script>
 </body>
 </html>

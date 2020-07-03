@@ -7,6 +7,12 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * h5与kotlin通信三种方式：
+ * 1.h5调用kotlin
+ * 2.kotlin调用h5
+ * 3.callback方式（h5调用kotlin然后再调h5回传参数）
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mWebView: WebView
@@ -24,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         //2.添加两个client
         mWebView.webViewClient = MyWebViewClient()
         mWebView.webChromeClient = MyWebChromeClient()
+        //添加通信桥梁类
+        mWebView.addJavascriptInterface(JavaScriptInterface(this@MainActivity, mWebView), "jsInterface")
         //3.加载网页
         mWebView.loadUrl("file:///android_asset/phonebook.html")
     }
@@ -31,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     inner class MyWebViewClient : WebViewClient() {
         //加载完成后执行H5通信
         override fun onPageFinished(view: WebView?, url: String?) {
-            mWebView.addJavascriptInterface(JavaScriptInterface(this@MainActivity), "jsInterface")
+            //mWebView.loadUrl("javascript:myAlert()")
         }
     }
 
