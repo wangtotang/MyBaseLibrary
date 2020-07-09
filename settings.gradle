@@ -1,3 +1,4 @@
+include ':https-demo'
 include ':webapp-demo'
 include ':alipay-demo'
 include ':tinker-demo'
