@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tang.common">
+    <!--
+  使用ZXing需要添加以下权限
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+  -->
+    <application>
+        <activity
+            android:name=".zxing.activity.CaptureActivity"
+            android:label="@string/com_gosuncn_core_common_qr_code"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+    </application>
+
+</manifest>

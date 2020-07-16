@@ -1,3 +1,6 @@
+include ':util'
+include ':ui'
+include ':common'
 include ':https-demo'
 include ':webapp-demo'
 include ':alipay-demo'
