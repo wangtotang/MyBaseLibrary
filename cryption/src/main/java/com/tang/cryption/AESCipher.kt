@@ -1,6 +1,6 @@
 package com.tang.cryption
 
-import java.util.*
+import android.util.Base64
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 
@@ -22,8 +22,7 @@ object AESCipher {
         instance.init(Cipher.ENCRYPT_MODE, secretKeySpec)
         //3.dofinal
         val byteArray = instance.doFinal(input.toByteArray())
-
-        return String(Base64.getEncoder().encode(byteArray))
+        return String(Base64.encode(byteArray, Base64.NO_WRAP))
     }
 
     fun decrypt(input: String, key: String): String {
@@ -33,7 +32,7 @@ object AESCipher {
         val secretKeySpec = SecretKeySpec(key.toByteArray(), ALGORITHM)
         instance.init(Cipher.DECRYPT_MODE, secretKeySpec)
         //3.dofinal
-        val byteArray = instance.doFinal(Base64.getDecoder().decode(input.toByteArray()))
+        val byteArray = instance.doFinal(Base64.decode(input.toByteArray(), Base64.NO_WRAP))
 
         return String(byteArray)
     }

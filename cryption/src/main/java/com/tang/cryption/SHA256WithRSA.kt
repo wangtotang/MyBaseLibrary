@@ -1,7 +1,7 @@
 package com.tang.cryption
 
+import android.util.Base64
 import java.security.Signature
-import java.util.*
 
 /**
  * Created by tanghongtu on 2020/6/23.
@@ -22,7 +22,7 @@ object SHA256WithRSA {
         //4.进行签名
         val sign = instance.sign()
 
-        return String(Base64.getEncoder().encode(sign))
+        return String(Base64.encode(sign, Base64.NO_WRAP))
     }
 
     fun verify(source: String, signature: String, publicKey: String): Boolean {
@@ -33,7 +33,7 @@ object SHA256WithRSA {
         //3.设置数据源
         instance.update(source.toByteArray())
         //4.进行验证
-        return instance.verify(Base64.getDecoder().decode(signature.toByteArray()))
+        return instance.verify(Base64.decode(signature.toByteArray(), Base64.NO_WRAP))
     }
 
 }
