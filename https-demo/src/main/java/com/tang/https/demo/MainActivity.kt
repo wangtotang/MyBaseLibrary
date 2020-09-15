@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import java.io.ByteArrayOutputStream
+import java.io.InputStream
 import java.net.URL
 import java.security.KeyStore
 import java.security.cert.CertificateFactory
@@ -59,6 +60,27 @@ class MainActivity : AppCompatActivity() {
 
         }).start()
 
+    }
+
+    fun getSSLSocketFactory(fileName: String, alias: String): SSLSocketFactory {
+
+        val trustManagerFactory =
+            TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm())
+
+        val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
+        keyStore.load(null, null)
+
+        val inputs = assets.open(fileName)
+        val certificateFactory = CertificateFactory.getInstance("X.509")
+        val cer = certificateFactory.generateCertificate(inputs)
+        keyStore.setCertificateEntry(alias, cer)
+
+        trustManagerFactory.init(keyStore)
+        val trustManager = trustManagerFactory.trustManagers
+
+        val sslContext = SSLContext.getInstance("TLS")
+        sslContext.init(null, trustManager, null)
+        return sslContext.socketFactory
     }
 
 

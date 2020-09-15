@@ -5,8 +5,6 @@ import android.util.TypedValue;
 
 /**
  * 单位转换辅助类
- * @author HWJ
- *
  */
 public class DensityUtils {
 	private DensityUtils() {
