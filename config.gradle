@@ -71,7 +71,8 @@ ext {
             'stepper-indicator'             :'com.github.badoualy:stepper-indicator:1.0.7',
             'vertical-stepper-form'         :'com.ernestoyaquello.stepperform:vertical-stepper-form:2.4.0',
             'CardSearchView'                :'com.github.limuyang2:CardSearchView:1.1.0.1',
-            'MaterialChipView'              :'com.robertlevonyan.view:MaterialChipView:2.0.6'
+            'MaterialChipView'              :'com.robertlevonyan.view:MaterialChipView:2.0.6',
+            'CheckVersionLib'               :'com.github.AlexLiuSheng:CheckVersionLib:2.4.1_androidx'
     ]
 
 }
