@@ -73,7 +73,9 @@ ext {
             'CardSearchView'                :'com.github.limuyang2:CardSearchView:1.1.0.1',
             'MaterialChipView'              :'com.robertlevonyan.view:MaterialChipView:2.0.6',
             'CheckVersionLib'               :'com.github.AlexLiuSheng:CheckVersionLib:2.4.1_androidx',
-            'xpopup'                        :'com.lxj:xpopup:2.2.13'
+            'xpopup'                        :'com.lxj:xpopup:2.2.13',
+            'Doodle'                        :'com.github.1993hzw:Doodle:5.5.3',
+            'imageselector'                 :'cn.hzw.imageselector:library:1.0'
     ]
 
 }
